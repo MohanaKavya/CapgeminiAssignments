@@ -7,13 +7,16 @@ public class EmployeeWage {
 			public static final int IS_PART_TIME = 2;
 			public static final int EMP_WAGE_PER_HOUR = 20;
 			public static final int WORKDAYS_PER_MONTH = 20;
+			public static final int WORKHOURS_PER_MONTH = 100;
 
 	public static void main(String[] args) {
 		
 			// variables
 			int empWage = 0;
 			int empHours = 0;
-			int empMonthlyWage = 0;
+			int dayCount = 0;
+			int hoursWorked = 0;
+			int totalWage = 0;
 		
 			// Welcome Message		
 			System.out.println("Welcome to Employee Wage Computation Program on Master Branch");
@@ -33,12 +36,31 @@ public class EmployeeWage {
 			
 			}
 			
-			// Calculation of Daily Employee Wage and Display
+			// Calculation of Daily Employee Wage
 			empWage = empHours * EMP_WAGE_PER_HOUR;
-			System.out.println("Employee Wage : "+empWage);
 			
-			// Calculation of Monthly Wage and Display
-			empMonthlyWage = empHours * EMP_WAGE_PER_HOUR * WORKDAYS_PER_MONTH;
-			System.out.println("Employee Monthly Wage : "+empMonthlyWage);	
+			// Tabular Display of Employee Details for Maximum Monthly Hours or Days
+			System.out.println("Day\tHours Worked\tTotal Wage");
+			while((hoursWorked+empHours)<=WORKHOURS_PER_MONTH && dayCount<WORKDAYS_PER_MONTH)
+			{	
+				dayCount++;
+				hoursWorked += empHours;
+				totalWage += empWage;
+				System.out.println(" "+dayCount+"  \t"+hoursWorked+"  \t\t"+totalWage);
+				
+			}
+			
+			// Calculations of Employee Wage for Hours left out of Maximum Hours
+			if(hoursWorked<WORKHOURS_PER_MONTH && dayCount<WORKDAYS_PER_MONTH)
+			{
+				dayCount++;
+				totalWage += (WORKHOURS_PER_MONTH - hoursWorked) * EMP_WAGE_PER_HOUR;
+				hoursWorked = hoursWorked + (WORKHOURS_PER_MONTH - hoursWorked);
+				System.out.println(" "+dayCount+"  \t"+hoursWorked+"  \t\t"+totalWage);
+			}
+			
+			// Display of Employee Total Wage
+			System.out.println("The Employee Total Wage for Maximum Hours or Days : "+totalWage);
+			
 	}
 }
