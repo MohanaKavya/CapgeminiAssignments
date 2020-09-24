@@ -4,8 +4,13 @@ public class EmployeeWage {
 	
 	        //constants
 			public static final int IS_FULL_TIME = 1;
+			public static final int EMP_WAGE_PER_HOUR = 20;
 
 	public static void main(String[] args) {
+		
+			// variables
+			int empWage = 0;
+			int empHours = 0;
 		
 			// Welcome Message		
 			System.out.println("Welcome to Employee Wage Computation Program on Master Branch");
@@ -14,10 +19,15 @@ public class EmployeeWage {
 			double empCheck = Math.floor(Math.random()*10)%2;
 			
 			// if-else to Check and Display Employee is Present or Absent 
-			if(empCheck == IS_FULL_TIME)
+			if(empCheck == IS_FULL_TIME) {
 				System.out.println("Employee Present");
-				
+				empHours = 8;
+			}	
 			else 
 				System.out.println("Employee Absent");	
+			
+			// Calculation of Daily Employee Wage
+			empWage = empHours * EMP_WAGE_PER_HOUR;
+			System.out.println("Employee Wage : "+empWage);
 	}
 }
