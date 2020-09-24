@@ -6,12 +6,14 @@ public class EmployeeWage {
 			public static final int IS_FULL_TIME = 1;
 			public static final int IS_PART_TIME = 2;
 			public static final int EMP_WAGE_PER_HOUR = 20;
+			public static final int WORKDAYS_PER_MONTH = 20;
 
 	public static void main(String[] args) {
 		
 			// variables
 			int empWage = 0;
 			int empHours = 0;
+			int empMonthlyWage = 0;
 		
 			// Welcome Message		
 			System.out.println("Welcome to Employee Wage Computation Program on Master Branch");
@@ -31,8 +33,12 @@ public class EmployeeWage {
 			
 			}
 			
-			// Calculation of Daily Employee Wage
+			// Calculation of Daily Employee Wage and Display
 			empWage = empHours * EMP_WAGE_PER_HOUR;
 			System.out.println("Employee Wage : "+empWage);
+			
+			// Calculation of Monthly Wage and Display
+			empMonthlyWage = empHours * EMP_WAGE_PER_HOUR * WORKDAYS_PER_MONTH;
+			System.out.println("Employee Monthly Wage : "+empMonthlyWage);	
 	}
 }
