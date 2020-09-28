@@ -77,6 +77,19 @@ public class EmpWageBuilderArrayList implements ComputeEmployeeWage {
 				company.setTotal_wage(totalWage);
 				}
 			
+			public int getTotalWage(String company) {
+				CompanyEmpWage companyResult = null;
+				for(CompanyEmpWage companySearch : companyEmpWageList)
+				
+					if((companySearch.getCompany_name()).equals(company))
+						{	companyResult = companySearch;
+							break;
+						}
+				
+				return companyResult.getTotal_wage();
+				
+			}
+			
 	public static void main(String[] args) {
 			
 			// Welcome Message		
@@ -87,6 +100,8 @@ public class EmpWageBuilderArrayList implements ComputeEmployeeWage {
 			empWagebuilder.addCompany("B", 10, 15, 80);
 			empWagebuilder.addCompany("C", 30, 25, 140);
 			empWagebuilder.computeEmployeeWage();
+			
+			System.out.println("Total Wage for B Company is "+empWagebuilder.getTotalWage("B"));
 
 
 			
