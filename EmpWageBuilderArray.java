@@ -1,9 +1,8 @@
 package AssignmentOne;
 
-public class EmpWageBuilderArray {
-			// constants
-			public static final int IS_FULL_TIME = 1;
-			public static final int IS_PART_TIME = 2;
+import AssignmentOne.Service.*;
+
+public class EmpWageBuilderArray implements ComputeEmployeeWage {
 			
 			private int numOfCompany = 0;
 			private CompanyEmpWage[] companyEmpWageArray;
