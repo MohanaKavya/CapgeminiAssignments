@@ -1,26 +1,28 @@
 package AssignmentOne;
 
-import AssignmentOne.Service.*;
+import java.util.ArrayList;
 
-public class EmpWageBuilderArray implements ComputeEmployeeWage {
+public class EmpWageBuilderArrayList {
+			// constants
+			public static final int IS_FULL_TIME = 1;
+			public static final int IS_PART_TIME = 2;
 			
-			private int numOfCompany = 0;
-			private CompanyEmpWage[] companyEmpWageArray;
+			private ArrayList<CompanyEmpWage> companyEmpWageList;
 			
-			public  EmpWageBuilderArray() {
-				companyEmpWageArray = new CompanyEmpWage[5];
+			public  EmpWageBuilderArrayList() {
+				companyEmpWageList = new ArrayList<CompanyEmpWage>();
 			}
 			 public void addCompany(String company_name, int emp_wage_per_hour, int workdays_per_month, int workhours_per_month) {
-				 companyEmpWageArray[numOfCompany] = new CompanyEmpWage(company_name, emp_wage_per_hour, workdays_per_month, workhours_per_month);
-				 numOfCompany++;
+				 CompanyEmpWage companyEmpWage = new CompanyEmpWage(company_name, emp_wage_per_hour, workdays_per_month, workhours_per_month);
+				 companyEmpWageList.add(companyEmpWage);
 			 }
 			 
 			 public void computeEmployeeWage()
 			 {
-				 for(int i=0; i<numOfCompany; i++)
+				 for(CompanyEmpWage company : companyEmpWageList)
 				 {
-					 computeEmployeeWage(companyEmpWageArray[i]);
-					 System.out.println("Employee Wage for Company "+companyEmpWageArray[i].getCompany_name()+" for Maximum Hours or Days is "+companyEmpWageArray[i].getTotal_wage());
+					 computeEmployeeWage(company);
+					 System.out.println("Employee Wage for Company "+company.getCompany_name()+" for Maximum Hours or Days is "+company.getTotal_wage());
 				 }
 			 }
 
@@ -80,7 +82,7 @@ public class EmpWageBuilderArray implements ComputeEmployeeWage {
 			// Welcome Message		
 			System.out.println("Welcome to Employee Wage Computation Program on Master Branch");
 			
-			EmpWageBuilderArray empWagebuilder = new EmpWageBuilderArray();
+			EmpWageBuilderArrayList empWagebuilder = new EmpWageBuilderArrayList();
 			empWagebuilder.addCompany("A", 20, 20, 100);
 			empWagebuilder.addCompany("B", 10, 15, 80);
 			empWagebuilder.addCompany("C", 30, 25, 140);
