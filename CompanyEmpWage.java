@@ -8,6 +8,7 @@ public class CompanyEmpWage {
 		private final int workdays_per_month;
 		private final int workhours_per_month;
 		private int total_wage;
+		private int daily_wage;
 		
 		//Constructor
 		public CompanyEmpWage(String company_name, int emp_wage_per_hour, int workdays_per_month, int workhours_per_month)
@@ -44,5 +45,12 @@ public class CompanyEmpWage {
 		public void setTotal_wage(int total_wage) {
 			this.total_wage = total_wage;
 		}
-			
+
+		public int getDaily_wage() {
+			return daily_wage;
+		}
+
+		public void setDaily_wage(int daily_wage) {
+			this.daily_wage = daily_wage;
+		}
 }

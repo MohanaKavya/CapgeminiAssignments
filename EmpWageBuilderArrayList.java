@@ -20,6 +20,7 @@ public class EmpWageBuilderArrayList implements ComputeEmployeeWage {
 				 for(CompanyEmpWage company : companyEmpWageList)
 				 {
 					 computeEmployeeWage(company);
+					 System.out.println("Employee Daily Wage for Company "+company.getCompany_name()+" is "+company.getDaily_wage());
 					 System.out.println("Employee Wage for Company "+company.getCompany_name()+" for Maximum Hours or Days is "+company.getTotal_wage());
 				 }
 			 }
@@ -52,6 +53,7 @@ public class EmpWageBuilderArrayList implements ComputeEmployeeWage {
 				
 				// Calculation of Daily Employee Wage
 				empWage = emp_hours_per_day * company.getEmp_wage_per_hour();
+				company.setDaily_wage(empWage);
 							
 				// Tabular Display of Employee Details for Maximum Monthly Hours or Days
 				System.out.println("Day\tHours Worked\tTotal Wage");
