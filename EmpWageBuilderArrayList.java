@@ -1,11 +1,9 @@
 package AssignmentOne;
 
 import java.util.ArrayList;
+import AssignmentOne.Service.*;
 
-public class EmpWageBuilderArrayList {
-			// constants
-			public static final int IS_FULL_TIME = 1;
-			public static final int IS_PART_TIME = 2;
+public class EmpWageBuilderArrayList implements ComputeEmployeeWage {
 			
 			private ArrayList<CompanyEmpWage> companyEmpWageList;
 			
