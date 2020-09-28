@@ -10,7 +10,6 @@ public class Company {
 		private int emp_wage_per_hour;
 		private int workdays_per_month;
 		private int workhours_per_month;
-		private int emp_hours_per_day;
 		
 		//Constructor
 		public Company(int emp_wage_per_hour, int workdays_per_month, int workhours_per_month)
@@ -18,25 +17,7 @@ public class Company {
 			this.emp_wage_per_hour = emp_wage_per_hour;
 			this.workdays_per_month = workdays_per_month;
 			this.workhours_per_month = workhours_per_month;
-		}
-		
-		public void employeeAttendance() {
-			// Computation
-			int empCheck = (int)(Math.floor(Math.random()*10)%3);
-						
-			// if-else changed to Switch to Check and Display Employee is Present or Absent 
-			switch(empCheck)
-				{ 		  case IS_FULL_TIME : System.out.println("Employee Present - Full Time");
-											  emp_hours_per_day = 8;
-											  break;
-						  case IS_PART_TIME : System.out.println("Employee Present - Part Time");
-						  					  emp_hours_per_day = 4;
-						  					  break;
-						  default           : System.out.println("Employee Absent");
-						  					  emp_hours_per_day = 0;
-						
-				}
-			}
+		}	
 			
 			// Re-factor to Compute Employee Wage Method in Class
 			public int computeEmployeeWage() {
@@ -45,6 +26,22 @@ public class Company {
 						int dayCount = 0;
 						int hoursWorked = 0;
 						int totalWage = 0;
+						int emp_hours_per_day = 0;
+						
+						// Computation
+						int empCheck = (int)(Math.floor(Math.random()*10)%3);
+									
+						// if-else changed to Switch to Check and Display Employee is Present or Absent 
+						switch(empCheck)
+							{ 		  case IS_FULL_TIME : System.out.println("Employee Present - Full Time");
+														  emp_hours_per_day = 8;
+														  break;
+									  case IS_PART_TIME : System.out.println("Employee Present - Part Time");
+									  					  emp_hours_per_day = 4;
+									  					  break;
+									  default           : System.out.println("Employee Absent");
+									
+							}
 						
 						// Calculation of Daily Employee Wage
 						empWage = emp_hours_per_day * emp_wage_per_hour;
